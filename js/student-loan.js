@@ -5,8 +5,8 @@
 (function () {
   "use strict";
 
-  const RECIPIENT_EMAIL = "info@fineramedia.co.zw";
-  const WHATSAPP_NUMBER = "263780034146";
+  const RECIPIENT_EMAIL = "business@shieldpointcapital.co.zw";
+  const WHATSAPP_NUMBER = "263776492182";
   const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
   const form = document.getElementById("studentLoanForm");

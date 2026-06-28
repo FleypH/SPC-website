@@ -97,70 +97,94 @@
   });
 
   /* Contact form */
+  const RECIPIENT_EMAIL = "business@shieldpointcapital.co.zw";
+  const WHATSAPP_NUMBER = "263776492182";
+
   if (contactForm) {
-    contactForm.addEventListener("submit", async function (e) {
-      e.preventDefault();
+    function getContactValues() {
+      return {
+        fullName: contactForm.firstName?.value.trim() || "",
+        email: contactForm.email?.value.trim() || "",
+        phone: contactForm.phone?.value.trim() || "",
+        message: contactForm.message?.value.trim() || "",
+      };
+    }
+
+    function validateContactForm() {
+      if (!formStatus) return null;
       formStatus.textContent = "";
       formStatus.className = "form-status";
 
-      const formData = new FormData(contactForm);
-      const payload = {
-        firstName: formData.get("firstName")?.toString().trim() || "",
-        lastName: formData.get("lastName")?.toString().trim() || "",
-        email: formData.get("email")?.toString().trim() || "",
-        phone: formData.get("phone")?.toString().trim() || "",
-        message: formData.get("message")?.toString().trim() || "",
-      };
+      const values = getContactValues();
 
-      if (
-        !payload.firstName ||
-        !payload.lastName ||
-        !payload.email ||
-        !payload.message
-      ) {
+      if (!values.fullName || !values.email || !values.message) {
         formStatus.textContent = "Please fill in all required fields.";
         formStatus.classList.add("error");
-        return;
+        return null;
       }
 
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
         formStatus.textContent = "Please enter a valid email address.";
         formStatus.classList.add("error");
-        return;
+        return null;
       }
 
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending…";
+      return values;
+    }
 
-      try {
-        const response = await fetch("api/contact.php", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
+    function buildEmailSubject(values) {
+      return "Shield Point Capital — Inquiry from " + values.fullName;
+    }
 
-        const result = await response.json();
+    function buildInquiryText(values) {
+      return [
+        "Shield Point Capital Inquiry",
+        "",
+        "Full Name: " + values.fullName,
+        "Email: " + values.email,
+        "Phone: " + (values.phone || "Not provided"),
+        "",
+        "Message:",
+        values.message,
+      ].join("\n");
+    }
 
-        if (response.ok && result.success) {
-          formStatus.textContent =
-            "Thank you! Your message has been sent successfully.";
-          formStatus.classList.add("success");
-          contactForm.reset();
-        } else {
-          formStatus.textContent =
-            result.message || "Something went wrong. Please try again.";
-          formStatus.classList.add("error");
-        }
-      } catch {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const values = validateContactForm();
+      if (!values) return;
+
+      const subject = encodeURIComponent(buildEmailSubject(values));
+      const body = encodeURIComponent(buildInquiryText(values));
+      window.location.href =
+        "mailto:" + RECIPIENT_EMAIL + "?subject=" + subject + "&body=" + body;
+
+      if (formStatus) {
         formStatus.textContent =
-          "Unable to send message. Please check your connection and try again.";
-        formStatus.classList.add("error");
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
+          "Your email app is opening with the subject and message ready. Tap Send to complete your inquiry.";
+        formStatus.classList.add("success");
       }
     });
+
+    const whatsappBtn = contactForm.querySelector('a[href*="wa.me"]');
+    if (whatsappBtn) {
+      whatsappBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        const values = validateContactForm();
+        if (!values) return;
+
+        const text = encodeURIComponent(buildInquiryText(values));
+        window.open(
+          "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text,
+          "_blank"
+        );
+
+        if (formStatus) {
+          formStatus.textContent =
+            "WhatsApp is opening with your message ready. Tap Send to complete your inquiry.";
+          formStatus.classList.add("success");
+        }
+      });
+    }
   }
 })();

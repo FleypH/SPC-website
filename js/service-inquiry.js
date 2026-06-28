@@ -5,8 +5,8 @@
 (function () {
   "use strict";
 
-  const RECIPIENT_EMAIL = "info@fineramedia.co.zw";
-  const WHATSAPP_NUMBER = "263780034146";
+  const RECIPIENT_EMAIL = "business@shieldpointcapital.co.zw";
+  const WHATSAPP_NUMBER = "263776492182";
 
   const form = document.getElementById("serviceInquiryForm");
   const formStatus = document.getElementById("serviceInquiryStatus");

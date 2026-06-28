@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-define('RECIPIENT_EMAIL', 'info@shieldpointcapital.com');
+define('RECIPIENT_EMAIL', 'business@shieldpointcapital.co.zw');
 define('FROM_EMAIL', 'noreply@shieldpointcapital.com');
 define('SITE_NAME', 'Shield Point Capital');
 define('MAX_FILE_SIZE', 5 * 1024 * 1024);

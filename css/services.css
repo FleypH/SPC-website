@@ -465,6 +465,10 @@
   align-items: flex-start;
 }
 
+.touch-item > img {
+  flex-shrink: 0;
+}
+
 .touch-item h4 {
   font-size: 0.875rem;
   font-weight: 700;
@@ -697,4 +701,9 @@ section:not(.hero) li,
 .form-status {
   font-size: 16px;
   font-weight: 400;
+}
+
+.page-products .products-page-section {
+  padding: 4rem 0 5rem;
+  background: var(--stat-bg, #eff4ff);
 }

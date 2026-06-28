@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // ── Configuration ──────────────────────────────────────────────
-define('RECIPIENT_EMAIL', 'info@shieldpointcapital.com');
+define('RECIPIENT_EMAIL', 'business@shieldpointcapital.co.zw');
 define('FROM_EMAIL', 'noreply@shieldpointcapital.com');
 define('SITE_NAME', 'Shield Point Capital');
 // ───────────────────────────────────────────────────────────────
