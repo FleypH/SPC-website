@@ -1,362 +1,545 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Partner with Shield Point Capital — Building financial inclusion through strategic partnerships.">
-  <title>Partners — Shield Point Capital</title>
-  <link rel="icon" type="image/png" href="assets/icons/logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/partners.css">
-</head>
-<body class="page-partners">
-
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <img src="assets/icons/logo.png" alt="Shield Point Capital logo">
-        <span class="logo-text">SHIELD POINT<br>CAPITAL</span>
-      </a>
-      <nav class="main-nav" id="mainNav">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#services">Portfolio</a>
-        <a href="services.html">Services</a>
-        <a href="investors.html">Investors</a>
-        <a href="index.html#contact">Contact Us</a>
-      </nav>
-      <a href="investors.html" class="btn btn-green">Invest With Us</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="partners-hero">
-    <div class="container partners-hero-grid">
-      <div class="partners-hero-text">
-        <h1>Building Financial Inclusion Through Strategic Partnerships</h1>
-        <p>
-          Join Shield Point Capital in expanding access to credit, payments, and financial
-          services across Africa. We collaborate with institutions that share our mission
-          to bridge exclusion gaps through technology and localized infrastructure.
-        </p>
-        <div class="partners-hero-buttons">
-          <a href="#apply" class="btn btn-green">Become a Partner</a>
-          <a href="assets/documents/partners-brochure.pdf" class="btn btn-outline-green" download>Download Brochure</a>
-        </div>
-      </div>
-      <div class="partners-hero-image">
-        <img src="assets/images/partners-hero.jpg" alt="Professionals shaking hands around a conference table">
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Organizations Choose -->
-  <section class="why-partner">
-    <div class="container">
-      <h2 class="section-title">Why Organizations Choose Shield Point Capital</h2>
-      <div class="why-partner-cards">
-        <article class="why-partner-card">
-          <img src="assets/icons/growth.png" alt="">
-          <h3>Expanded Reach</h3>
-          <p>Access new customer segments and geographies through our established digital lending and payment rails.</p>
-        </article>
-        <article class="why-partner-card">
-          <img src="assets/icons/lightbulb-brain.png" alt="">
-          <h3>Digital Transformation</h3>
-          <p>Modernize legacy systems with our API-first platform, enabling faster onboarding and seamless integration.</p>
-        </article>
-        <article class="why-partner-card">
-          <img src="assets/icons/teamwork.png" alt="">
-          <h3>Customer Acquisition</h3>
-          <p>Leverage our 160k+ active user base and proven acquisition channels to grow your portfolio efficiently.</p>
-        </article>
-        <article class="why-partner-card">
-          <img src="assets/icons/research.png" alt="">
-          <h3>Market Intelligence</h3>
-          <p>Benefit from deep local insights, credit data, and regulatory expertise across Southern African markets.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Who We Partner With -->
-  <section class="partner-types">
-    <div class="container">
-      <div class="partner-types-header">
-        <h2>Who We Partner With</h2>
-        <p>
-          We work with a diverse range of organizations committed to financial inclusion.
-          Whether you are a bank, employer, or development agency, we have a partnership
-          model designed for your goals.
-        </p>
-      </div>
-      <div class="partner-types-grid">
-        <article class="partner-type-card">
-          <img src="assets/icons/bank.png" alt="">
-          <h3>Banks &amp; MFIs</h3>
-          <p>Extend lending capacity, co-lend on our platform, and reach underserved segments with digital-first products.</p>
-        </article>
-        <article class="partner-type-card">
-          <img src="assets/icons/graduation-cap.png" alt="">
-          <h3>Universities</h3>
-          <p>Provide student financing, bursary disbursement, and campus payment solutions through integrated APIs.</p>
-        </article>
-        <article class="partner-type-card">
-          <img src="assets/icons/teamwork.png" alt="">
-          <h3>Employers</h3>
-          <p>Offer salary-linked lending, payroll integration, and employee financial wellness programmes at scale.</p>
-        </article>
-        <article class="partner-type-card">
-          <img src="assets/icons/handshake.png" alt="">
-          <h3>SACCOs</h3>
-          <p>Digitize member services, enable mobile savings, and expand credit access for cooperative members.</p>
-        </article>
-        <article class="partner-type-card">
-          <img src="assets/icons/growth.png" alt="">
-          <h3>Dev Organizations</h3>
-          <p>Deploy capital for financial inclusion programmes with transparent reporting and impact measurement.</p>
-        </article>
-        <article class="partner-type-card">
-          <img src="assets/icons/bank.png" alt="">
-          <h3>Gov Institutions</h3>
-          <p>Support social disbursement, SME stimulus programmes, and regulatory-compliant fintech infrastructure.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- How Partnership Works -->
-  <section class="how-partnership">
-    <div class="container">
-      <h2 class="section-title">How Partnership Works</h2>
-      <div class="how-steps">
-        <div class="how-step">
-          <div class="how-step-icon">
-            <img src="assets/icons/icon-location.svg" alt="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Partner with Shield Point Capital — Building financial inclusion through strategic partnerships."
+    />
+    <title>Partners — Shield Point Capital</title>
+    <link rel="icon" type="image/png" href="assets/icons/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/partners.css" />
+  </head>
+  <body class="page-partners">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">
+          <img src="assets/icons/logo.png" alt="Shield Point Capital logo" />
+          <span class="logo-text">SHIELD POINT<br />CAPITAL</span>
+        </a>
+        <nav class="main-nav" id="mainNav">
+          <a href="index.html">Home</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#services">Portfolio</a>
+          <div class="nav-dropdown">
+            <button
+              type="button"
+              class="nav-dropdown-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
+              Services
+              <svg
+                class="nav-dropdown-chevron"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 9l6 6 6-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li role="none">
+                <a href="loan-services.html" role="menuitem">Core Services</a>
+              </li>
+              <li role="none">
+                <a href="services.html" role="menuitem"
+                  >Business Support Services</a
+                >
+              </li>
+            </ul>
           </div>
-          <h3>Consultation</h3>
-          <p>Initial discovery call to understand your goals, market, and integration requirements.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-step-icon">
-            <img src="assets/icons/bank.png" alt="">
-          </div>
-          <h3>Needs Assessment</h3>
-          <p>Our team maps your use case to the right products, APIs, and compliance framework.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-step-icon">
-            <img src="assets/icons/excellence.png" alt="">
-          </div>
-          <h3>Integration</h3>
-          <p>Technical onboarding, sandbox testing, and go-live support with dedicated engineers.</p>
-        </div>
-        <div class="how-step">
-          <div class="how-step-icon">
-            <img src="assets/icons/growth.png" alt="">
-          </div>
-          <h3>Launch</h3>
-          <p>Coordinated rollout with marketing support, monitoring, and ongoing partnership management.</p>
-        </div>
+          <a href="investors.html">Investors</a>
+          <a href="index.html#contact">Contact Us</a>
+        </nav>
+        <a href="investors.html" class="btn btn-green">Invest With Us</a>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- Apply for Partnership -->
-  <section class="apply-partnership" id="apply">
-    <div class="container">
-      <div class="apply-form-card">
-        <h2>Apply for Partnership</h2>
-        <p class="form-intro">Fill out the form below and our team will get back to you within 24 hours.</p>
-        <form id="partnershipForm" novalidate>
-          <div class="form-section">
-            <h3 class="form-section-title">Organization Details</h3>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="orgName">Organization Name</label>
-                <input type="text" id="orgName" name="orgName" required>
-              </div>
-              <div class="form-group">
-                <label for="orgType">Organization Type</label>
-                <select id="orgType" name="orgType" required>
-                  <option value="">Select type</option>
-                  <option value="Bank / MFI">Bank / MFI</option>
-                  <option value="University">University</option>
-                  <option value="Employer">Employer</option>
-                  <option value="SACCO">SACCO</option>
-                  <option value="Development Organization">Development Organization</option>
-                  <option value="Government Institution">Government Institution</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="businessSector">Business Sector</label>
-                <input type="text" id="businessSector" name="businessSector" required>
-              </div>
-              <div class="form-group">
-                <label for="country">Country of Operation</label>
-                <input type="text" id="country" name="country" required>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group full">
-                <label for="website">Website URL</label>
-                <input type="url" id="website" name="website" placeholder="https://">
-              </div>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3 class="form-section-title">Primary Contact</h3>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="contactName">Full Name</label>
-                <input type="text" id="contactName" name="contactName" required autocomplete="name">
-              </div>
-              <div class="form-group">
-                <label for="jobTitle">Job Title</label>
-                <input type="text" id="jobTitle" name="jobTitle" required>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="contactEmail">Email Address</label>
-                <input type="email" id="contactEmail" name="contactEmail" required autocomplete="email">
-              </div>
-              <div class="form-group">
-                <label for="contactPhone">Phone Number</label>
-                <input type="tel" id="contactPhone" name="contactPhone" autocomplete="tel">
-              </div>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3 class="form-section-title">Partnership Details</h3>
-            <div class="form-group full">
-              <label for="partnershipInterest">Brief description of partnership interest</label>
-              <textarea id="partnershipInterest" name="partnershipInterest" required></textarea>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3 class="form-section-title">Services of Interest</h3>
-            <div class="checkbox-group">
-              <label class="checkbox-item">
-                <input type="checkbox" name="services" value="Digital Lending Platform">
-                Digital Lending Platform
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox" name="services" value="Credit Scoring Engine">
-                Credit Scoring Engine
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox" name="services" value="Disbursement Services">
-                Disbursement Services
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox" name="services" value="Regulatory Compliance">
-                Regulatory Compliance
-              </label>
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-green btn-submit-full">Submit Application</button>
-          <p class="form-status" id="partnershipFormStatus" role="status"></p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Final CTA -->
-  <section class="partners-cta">
-    <div class="container partners-cta-content">
-      <h2>Let's Build Financial Access Together</h2>
-      <p>
-        Partner with Shield Point Capital to deliver inclusive financial products
-        that reach the people and communities who need them most.
-      </p>
-      <div class="partners-cta-buttons">
-        <a href="#apply" class="btn btn-white">Become a Partner</a>
-        <a href="index.html#contact" class="btn btn-outline">Talk to an Expert</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="site-footer footer-partners">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="logo">
-            <img src="assets/icons/logo.png" alt="Shield Point Capital logo">
-            <span class="logo-text">SHIELD POINT<br>CAPITAL</span>
-          </a>
+    <!-- Hero -->
+    <section class="partners-hero">
+      <div class="container partners-hero-grid">
+        <div class="partners-hero-text">
+          <h1>Building Financial Inclusion Through Strategic Partnerships</h1>
           <p>
-            Empowering the future of finance across Africa with technology-driven
-            solutions that bridge exclusion gaps and unlock economic growth.
+            Join Shield Point Capital in expanding access to credit, payments,
+            and financial services across Africa. We collaborate with
+            institutions that share our mission to bridge exclusion gaps through
+            technology and localized infrastructure.
+          </p>
+          <div class="partners-hero-buttons">
+            <a href="#apply" class="btn btn-green">Become a Partner</a>
+            <a
+              href="assets/documents/partners-brochure.pdf"
+              class="btn btn-outline-green"
+              download
+              >Download Brochure</a
+            >
+          </div>
+        </div>
+        <div class="partners-hero-image">
+          <img
+            src="assets/partners/part.jpeg"
+            alt="Professionals shaking hands around a conference table"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Organizations Choose -->
+    <section class="why-partner">
+      <div class="container">
+        <h2 class="section-title">
+          Why Organizations Choose Shield Point Capital
+        </h2>
+        <div class="why-partner-cards">
+          <article class="why-partner-card">
+            <img src="assets/icons/growth.png" alt="" />
+            <h3>Expanded Reach</h3>
+            <p>
+              Access new customer segments and geographies through our
+              established digital lending and payment rails.
+            </p>
+          </article>
+          <article class="why-partner-card">
+            <img src="assets/icons/lightbulb-brain.png" alt="" />
+            <h3>Digital Transformation</h3>
+            <p>
+              Modernize legacy systems with our API-first platform, enabling
+              faster onboarding and seamless integration.
+            </p>
+          </article>
+          <article class="why-partner-card">
+            <img src="assets/icons/teamwork.png" alt="" />
+            <h3>Customer Acquisition</h3>
+            <p>
+              Leverage our 160k+ active user base and proven acquisition
+              channels to grow your portfolio efficiently.
+            </p>
+          </article>
+          <article class="why-partner-card">
+            <img src="assets/icons/research.png" alt="" />
+            <h3>Market Intelligence</h3>
+            <p>
+              Benefit from deep local insights, credit data, and regulatory
+              expertise across Southern African markets.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who We Partner With -->
+    <section class="partner-types">
+      <div class="container">
+        <div class="partner-types-header">
+          <h2>Who We Partner With</h2>
+          <p>
+            We work with a diverse range of organizations committed to financial
+            inclusion. Whether you are a bank, employer, or development agency,
+            we have a partnership model designed for your goals.
           </p>
         </div>
-        <div class="footer-col">
-          <h4>Contact Details</h4>
-          <ul class="footer-contact-list">
-            <li>
-              <img src="assets/icons/icon-location.svg" alt="">
-              <span>Harare, Zimbabwe</span>
-            </li>
-            <li>
-              <img src="assets/icons/icon-phone.svg" alt="">
-              <span>+263 (0) 4 123 4567</span>
-            </li>
-            <li>
-              <img src="assets/icons/icon-email.svg" alt="">
-              <span>partners@shieldpointcapital.com</span>
-            </li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="index.html#about">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="partners.html">Partnerships</a></li>
-            <li><a href="index.html#services">Solutions</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="#">Legal &amp; Compliance</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-          </ul>
+        <div class="partner-types-grid">
+          <article class="partner-type-card">
+            <img src="assets/icons/bank.png" alt="" />
+            <h3>Banks &amp; MFIs</h3>
+            <p>
+              Extend lending capacity, co-lend on our platform, and reach
+              underserved segments with digital-first products.
+            </p>
+          </article>
+          <article class="partner-type-card">
+            <img src="assets/icons/graduation-cap.png" alt="" />
+            <h3>Universities</h3>
+            <p>
+              Provide student financing, bursary disbursement, and campus
+              payment solutions through integrated APIs.
+            </p>
+          </article>
+          <article class="partner-type-card">
+            <img src="assets/icons/teamwork.png" alt="" />
+            <h3>Employers</h3>
+            <p>
+              Offer salary-linked lending, payroll integration, and employee
+              financial wellness programmes at scale.
+            </p>
+          </article>
+          <article class="partner-type-card">
+            <img src="assets/icons/handshake.png" alt="" />
+            <h3>SACCOs</h3>
+            <p>
+              Digitize member services, enable mobile savings, and expand credit
+              access for cooperative members.
+            </p>
+          </article>
+          <article class="partner-type-card">
+            <img src="assets/icons/growth.png" alt="" />
+            <h3>Dev Organizations</h3>
+            <p>
+              Deploy capital for financial inclusion programmes with transparent
+              reporting and impact measurement.
+            </p>
+          </article>
+          <article class="partner-type-card">
+            <img src="assets/icons/bank.png" alt="" />
+            <h3>Gov Institutions</h3>
+            <p>
+              Support social disbursement, SME stimulus programmes, and
+              regulatory-compliant fintech infrastructure.
+            </p>
+          </article>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Shield Point Capital. All rights reserved.</p>
-        <a href="#">Privacy Policy</a>
-        <span>|</span>
-        <a href="#">Cookies</a>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <script src="js/main.js"></script>
-  <script src="js/partners.js"></script>
-</body>
+    <!-- How Partnership Works -->
+    <section class="how-partnership">
+      <div class="container">
+        <h2 class="section-title">How Partnership Works</h2>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="how-step-icon">
+              <img src="assets/icons/icon-location.svg" alt="" />
+            </div>
+            <h3>Consultation</h3>
+            <p>
+              Initial discovery call to understand your goals, market, and
+              integration requirements.
+            </p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-icon">
+              <img src="assets/icons/bank.png" alt="" />
+            </div>
+            <h3>Needs Assessment</h3>
+            <p>
+              Our team maps your use case to the right products, APIs, and
+              compliance framework.
+            </p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-icon">
+              <img src="assets/icons/excellence.png" alt="" />
+            </div>
+            <h3>Integration</h3>
+            <p>
+              Technical onboarding, sandbox testing, and go-live support with
+              dedicated engineers.
+            </p>
+          </div>
+          <div class="how-step">
+            <div class="how-step-icon">
+              <img src="assets/icons/growth.png" alt="" />
+            </div>
+            <h3>Launch</h3>
+            <p>
+              Coordinated rollout with marketing support, monitoring, and
+              ongoing partnership management.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apply for Partnership -->
+    <section class="apply-partnership" id="apply">
+      <div class="container">
+        <div class="apply-form-card">
+          <h2>Apply for Partnership</h2>
+          <p class="form-intro">
+            Fill out the form below and our team will get back to you within 24
+            hours.
+          </p>
+          <form id="partnershipForm" novalidate>
+            <div class="form-section">
+              <h3 class="form-section-title">Organization Details</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="orgName">Organization Name</label>
+                  <input type="text" id="orgName" name="orgName" required />
+                </div>
+                <div class="form-group">
+                  <label for="orgType">Organization Type</label>
+                  <select id="orgType" name="orgType" required>
+                    <option value="">Select type</option>
+                    <option value="Bank / MFI">Bank / MFI</option>
+                    <option value="University">University</option>
+                    <option value="Employer">Employer</option>
+                    <option value="SACCO">SACCO</option>
+                    <option value="Development Organization">
+                      Development Organization
+                    </option>
+                    <option value="Government Institution">
+                      Government Institution
+                    </option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="businessSector">Business Sector</label>
+                  <input
+                    type="text"
+                    id="businessSector"
+                    name="businessSector"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="country">Country of Operation</label>
+                  <input type="text" id="country" name="country" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group full">
+                  <label for="website">Website URL</label>
+                  <input
+                    type="url"
+                    id="website"
+                    name="website"
+                    placeholder="https://"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3 class="form-section-title">Primary Contact</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactName">Full Name</label>
+                  <input
+                    type="text"
+                    id="contactName"
+                    name="contactName"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="jobTitle">Job Title</label>
+                  <input type="text" id="jobTitle" name="jobTitle" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactEmail">Email Address</label>
+                  <input
+                    type="email"
+                    id="contactEmail"
+                    name="contactEmail"
+                    required
+                    autocomplete="email"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="contactPhone">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="contactPhone"
+                    name="contactPhone"
+                    autocomplete="tel"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3 class="form-section-title">Partnership Details</h3>
+              <div class="form-group full">
+                <label for="partnershipInterest"
+                  >Brief description of partnership interest</label
+                >
+                <textarea
+                  id="partnershipInterest"
+                  name="partnershipInterest"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3 class="form-section-title">Services of Interest</h3>
+              <div class="checkbox-group">
+                <label class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    name="services"
+                    value="Digital Lending Platform"
+                  />
+                  Digital Lending Platform
+                </label>
+                <label class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    name="services"
+                    value="Credit Scoring Engine"
+                  />
+                  Credit Scoring Engine
+                </label>
+                <label class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    name="services"
+                    value="Disbursement Services"
+                  />
+                  Disbursement Services
+                </label>
+                <label class="checkbox-item">
+                  <input
+                    type="checkbox"
+                    name="services"
+                    value="Regulatory Compliance"
+                  />
+                  Regulatory Compliance
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-green btn-submit-full">
+              Submit Application
+            </button>
+            <p class="form-status" id="partnershipFormStatus" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="partners-cta">
+      <div class="container partners-cta-content">
+        <h2>Let's Build Financial Access Together</h2>
+        <p>
+          Partner with Shield Point Capital to deliver inclusive financial
+          products that reach the people and communities who need them most.
+        </p>
+        <div class="partners-cta-buttons">
+          <a href="#apply" class="btn btn-white">Become a Partner</a>
+          <a href="index.html#contact" class="btn btn-outline"
+            >Talk to an Expert</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer footer-partners">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="logo">
+              <img
+                src="assets/icons/logo.png"
+                alt="Shield Point Capital logo"
+              />
+              <span class="logo-text">SHIELD POINT<br />CAPITAL</span>
+            </a>
+            <p>
+              To build the future of inclusive finance and the technology that
+              makes it possible.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Details</h4>
+            <ul class="footer-contact-list">
+              <li>
+                <img
+                  src="assets/main/912841506896fdf51b089d4922dc74c3 1.png"
+                  alt=""
+                />
+                <span>info@fineramedia.co.zw</span>
+              </li>
+              <li>
+                <img
+                  src="assets/main/45e235ee05ff4c3ee3d000b9532ef587 1.png"
+                  alt=""
+                />
+                <span>+263 780 034 146</span>
+              </li>
+              <li>
+                <img
+                  src="assets/main/8a0f18aee763cdcc20522814d6528990 1.png"
+                  alt=""
+                />
+                <span>+263 719 197 960</span>
+              </li>
+              <li>
+                <img
+                  src="assets/main/7eaf2c45965894defed0c8ae2a4e2140 1.png"
+                  alt=""
+                />
+                <span>8AM – 11PM (Mon – Sun)</span>
+              </li>
+              <li>
+                <img
+                  src="assets/main/4edcb460a940ff726549077935f57168 1.png"
+                  alt=""
+                />
+                <span>Harare (Online-based), Zimbabwe</span>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul>
+              <li><a href="loan-services.html">Core Services</a></li>
+              <li><a href="services.html">Business Support Services</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Legal &amp; Compliance</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Shield Point Capital. All rights reserved.</p>
+          <a href="#">Privacy Policy</a>
+          <span>|</span>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/partners.js"></script>
+  </body>
 </html>

@@ -5,65 +5,141 @@
 (function () {
   "use strict";
 
+  const RECIPIENT_EMAIL = "info@fineramedia.co.zw";
+  const WHATSAPP_NUMBER = "263780034146";
+
+  const messageField = document.getElementById("message");
+
+  function buildOrderMessage(card, btn) {
+    const serviceTitle =
+      document.querySelector(".service-pricing-title")?.textContent.trim() ||
+      btn.dataset.service ||
+      "Web Development";
+    const plan =
+      card.querySelector(".pricing-plan")?.textContent.trim() ||
+      btn.dataset.plan ||
+      "Selected Package";
+    const amount = card.querySelector(".pricing-amount")?.textContent.trim() || "";
+    const term = card.querySelector(".pricing-term")?.textContent.trim() || "";
+    const features = Array.from(card.querySelectorAll(".pricing-features li"))
+      .map(function (item) {
+        return "• " + item.textContent.trim();
+      })
+      .join("\n");
+
+    const lines = [
+      "I would like to order the following package:",
+      "",
+      "Service: " + serviceTitle,
+      "Plan: " + plan,
+    ];
+
+    if (amount) {
+      lines.push("Price: " + amount + (term ? " " + term : ""));
+    }
+
+    if (features) {
+      lines.push("", "Package includes:", features);
+    }
+
+    return lines.join("\n");
+  }
+
+  document.querySelectorAll(".pricing-order-btn[data-plan]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const card = btn.closest(".pricing-card");
+      if (messageField && card) {
+        messageField.value = buildOrderMessage(card, btn);
+      }
+
+      requestAnimationFrame(function () {
+        const firstName = document.getElementById("firstName");
+        if (firstName) firstName.focus();
+      });
+    });
+  });
+
   const form = document.getElementById("servicesContactForm");
   const formStatus = document.getElementById("servicesFormStatus");
 
   if (!form) return;
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
+  function getFormValues() {
+    return {
+      fullName: form.firstName?.value.trim() || "",
+      email: form.email?.value.trim() || "",
+      phone: form.phone?.value.trim() || "",
+      message: form.message?.value.trim() || "",
+    };
+  }
+
+  function validateForm(values) {
     formStatus.textContent = "";
     formStatus.className = "form-status";
 
-    const formData = new FormData(form);
-    const payload = {
-      fullName: formData.get("fullName")?.toString().trim() || "",
-      email: formData.get("email")?.toString().trim() || "",
-      phone: formData.get("phone")?.toString().trim() || "",
-      message: formData.get("message")?.toString().trim() || "",
-      source: "Services Page",
-    };
-
-    if (!payload.fullName || !payload.email || !payload.message) {
+    if (!values.fullName || !values.email || !values.message) {
       formStatus.textContent = "Please fill in all required fields.";
       formStatus.classList.add("error");
-      return;
+      return false;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
       formStatus.textContent = "Please enter a valid email address.";
       formStatus.classList.add("error");
-      return;
+      return false;
     }
 
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending…";
+    return true;
+  }
 
-    try {
-      const response = await fetch("api/contact.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+  function buildEmailSubject(values) {
+    return "Shield Point Capital — Inquiry from " + values.fullName;
+  }
 
-      const result = await response.json();
+  function buildInquiryText(values) {
+    return [
+      "Shield Point Capital Inquiry",
+      "",
+      "Full Name: " + values.fullName,
+      "Email: " + values.email,
+      "Phone: " + (values.phone || "Not provided"),
+      "",
+      "Message:",
+      values.message,
+    ].join("\n");
+  }
 
-      if (response.ok && result.success) {
-        formStatus.textContent = "Thank you! Your inquiry has been sent successfully.";
-        formStatus.classList.add("success");
-        form.reset();
-      } else {
-        formStatus.textContent = result.message || "Something went wrong. Please try again.";
-        formStatus.classList.add("error");
-      }
-    } catch {
-      formStatus.textContent = "Unable to send inquiry. Please check your connection and try again.";
-      formStatus.classList.add("error");
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-    }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const values = getFormValues();
+    if (!validateForm(values)) return;
+
+    const subject = encodeURIComponent(buildEmailSubject(values));
+    const body = encodeURIComponent(buildInquiryText(values));
+    window.location.href =
+      "mailto:" + RECIPIENT_EMAIL + "?subject=" + subject + "&body=" + body;
+
+    formStatus.textContent =
+      "Your email app is opening with the subject and message ready. Tap Send to complete your inquiry.";
+    formStatus.classList.add("success");
   });
+
+  const whatsappBtn = form.querySelector('a[href*="wa.me"]');
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      const values = getFormValues();
+      if (!validateForm(values)) return;
+
+      const text = encodeURIComponent(buildInquiryText(values));
+      window.open(
+        "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text,
+        "_blank"
+      );
+
+      formStatus.textContent =
+        "WhatsApp is opening with your message ready. Tap Send to complete your inquiry.";
+      formStatus.classList.add("success");
+    });
+  }
 })();

@@ -108,12 +108,310 @@
   flex: 1;
 }
 
+.service-card-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  flex: 0;
+}
+
+.service-card-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.service-card-list li {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 0.35rem;
+}
+
+.service-card-list li:last-child {
+  margin-bottom: 0;
+}
+
 .service-card-body .btn {
   align-self: flex-start;
   padding: 0.625rem 1.25rem;
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Business Support Services — service cards in one row */
+.page-support-services .services-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.page-support-services .service-card {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Core Services — two service cards per row */
+.page-core-services .services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* Student loan application page */
+.loan-request-section {
+  padding: 4rem 0 5rem;
+  background: #eff4ff;
+}
+
+.loan-request-container {
+  max-width: 760px;
+}
+
+.loan-request-intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.loan-request-intro h2 {
+  color: var(--green);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.loan-request-intro p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.loan-request-form {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2.25rem 2rem;
+  box-shadow: 0 8px 40px rgba(11, 28, 48, 0.12);
+}
+
+.loan-request-form .form-group input[type="file"] {
+  padding: 0.625rem 0.75rem;
+  background: #f7f9fc;
+  border: 1px solid var(--border-light);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.loan-request-form .form-group input[type="file"]:focus {
+  outline: none;
+  border-color: var(--green);
+  background: var(--white);
+}
+
+.form-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.loan-form-buttons {
+  margin-top: 0.5rem;
+}
+
+.loan-form-buttons .btn {
+  min-width: 180px;
+}
+
+.service-info-box {
+  background: #f7f9fc;
+  border: 1px solid var(--border-light);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-info-box h3 {
+  color: var(--green);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.service-info-box p {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Service Pricing Section */
+.service-pricing {
+  display: none;
+  padding: 4rem 0 5rem;
+  background: var(--white);
+}
+
+.service-pricing.is-visible,
+.service-pricing--page {
+  display: block;
+}
+
+.service-pricing-title {
+  text-align: center;
+  color: var(--navy);
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.35;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.service-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.pricing-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 12px rgba(11, 28, 48, 0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(11, 28, 48, 0.14);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--green);
+  color: var(--white);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  padding: 0.35rem 0.875rem;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.pricing-plan {
+  text-align: center;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  padding: 1.75rem 1rem 1rem;
+  margin: 0;
+}
+
+.pricing-card.has-badge .pricing-plan {
+  padding-top: 2.25rem;
+}
+
+.pricing-price-block {
+  position: relative;
+  padding: 1.25rem 1rem 2rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  color: var(--white);
+}
+
+.pricing-price-block--navy {
+  background: var(--navy);
+}
+
+.pricing-price-block--green {
+  background: var(--green);
+}
+
+.pricing-price-block::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+  width: 100%;
+  height: 18px;
+  background: inherit;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.pricing-amount {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pricing-term {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.pricing-order-btn {
+  display: inline-block;
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--font);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.pricing-price-block--green .pricing-order-btn {
+  color: var(--green);
+}
+
+.pricing-order-btn:hover {
+  opacity: 0.88;
+}
+
+.pricing-features {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0 0;
+  flex: 1;
+}
+
+.pricing-features li {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-dark);
+  padding: 0.875rem 1rem;
+  border-top: 1px solid #ebebeb;
+  line-height: 1.45;
+}
+
+.pricing-features li:first-child {
+  border-top: none;
 }
 
 /* Services Contact */
@@ -304,23 +602,66 @@
 
 .footer-contact-list li {
   display: flex;
-  gap: 0.625rem;
+  gap: 0.75rem;
   align-items: center;
-  font-size: 0.8125rem;
   opacity: 0.85;
   line-height: 1.5;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
+  .page-support-services .services-grid {
+    flex-wrap: wrap;
+  }
+
+  .page-support-services .service-card {
+    flex: 1 1 calc(50% - 0.75rem);
+  }
+
+  .service-pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.25rem;
+  }
+
   .footer-services .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 768px) {
+  .page-support-services .services-grid {
+    flex-direction: column;
+  }
+
+  .page-support-services .service-card {
+    flex: 1 1 100%;
+  }
+
+  .loan-request-form {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .loan-request-form .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-form-buttons {
+    flex-direction: column;
+  }
+
+  .loan-form-buttons .btn {
+    width: 100%;
+  }
+
+  .page-core-services .services-grid,
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .service-pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
   }
 
   .services-contact-grid {
@@ -338,4 +679,22 @@
   .footer-services .footer-links-split {
     grid-template-columns: 1fr;
   }
+}
+
+/* Sitewide body text — 16px (hero excluded) */
+section:not(.hero) p,
+section:not(.hero) li,
+.site-footer p,
+.site-footer li,
+.service-card-body p,
+.service-pricing-title,
+.pricing-features li,
+.loan-request-intro p,
+.form-hint,
+.services-contact-intro p,
+.touch-item p,
+.form-privacy,
+.form-status {
+  font-size: 16px;
+  font-weight: 400;
 }

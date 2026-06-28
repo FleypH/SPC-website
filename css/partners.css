@@ -328,7 +328,6 @@
   width: 100%;
   margin-top: 0.5rem;
   padding: 1rem;
-  font-size: 1rem;
 }
 
 /* Partners CTA */
@@ -411,19 +410,19 @@
 
 .footer-contact-list li {
   display: flex;
-  gap: 0.625rem;
-  align-items: flex-start;
-  font-size: 0.8125rem;
+  gap: 0.75rem;
+  align-items: center;
   opacity: 0.85;
   line-height: 1.5;
 }
 
 .footer-contact-list img {
-  width: 16px;
-  height: 16px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
-  margin-top: 2px;
-  filter: brightness(0) saturate(100%) invert(42%) sepia(89%) saturate(450%) hue-rotate(118deg) brightness(95%) contrast(101%);
+  object-fit: contain;
+  filter: invert(27%) sepia(89%) saturate(500%) hue-rotate(115deg)
+    brightness(85%) contrast(90%);
 }
 
 .footer-partners .footer-bottom {
@@ -492,4 +491,17 @@
   .footer-partners .footer-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Sitewide body text — 16px (hero excluded) */
+section:not(.hero) p,
+section:not(.hero) li,
+.site-footer p,
+.site-footer li,
+.partners-hero-text p,
+.partner-benefit p,
+.apply-intro p,
+.form-privacy,
+.form-status {
+  font-size: 16px;
 }

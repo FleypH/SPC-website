@@ -29,7 +29,18 @@
           <a href="index.html">Home</a>
           <a href="#about">About</a>
           <a href="#products">Products</a>
-          <a href="services.html">Services</a>
+          <div class="nav-dropdown">
+            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Services
+              <svg class="nav-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <ul class="nav-dropdown-menu" role="menu">
+              <li role="none"><a href="loan-services.html" role="menuitem">Core Services</a></li>
+              <li role="none"><a href="services.html" role="menuitem">Business Support Services</a></li>
+            </ul>
+          </div>
           <a href="investors.html">Investors</a>
           <a href="partners.html">Partners</a>
           <a href="#contact">Contact Us</a>
@@ -100,13 +111,18 @@
           />
         </div>
         <div class="info-text">
-          <h2>OUR STORY</h2>
+          <h2>WHO ARE WE</h2>
           <p>
-            Shield Point Capital is a forward-thinking financial services firm
-            dedicated to bridging the gap between capital and opportunity. We
-            serve entrepreneurs, SMEs, and institutions with tailored lending
-            solutions, strategic advisory, and innovative fintech platforms
-            designed for real-world impact.
+            <strong>Shield Point Capital (Private) Limited</strong> is a Zimbabwean company registered under <strong>the Companies and Other Business Entities Act [Chapter 24:31]</strong>. The company was founded on 17 September 2025 with a vision of making financing more accessible, transparent, and inclusive for individuals and businesses across Africa.
+          </p>
+          <p>
+            The company is currently operating from Bulawayo, Zimbabwe.
+          </p>
+          <p>
+            Shield Point Capital began as a small student financing initiative with a team of three members, providing responsible financial support to university students. Through continuous market research and a deep understanding of the financial challenges faced by many Africans, particularly in Zimbabwe, the company has evolved into a growing financial services and technology business.
+          </p>
+          <p>
+            Today, Shield Point Capital is building innovative financial solutions that connect people, businesses, and financial institutions through technology, creating faster, fairer, and more efficient access to finance.
           </p>
         </div>
       </div>
@@ -371,31 +387,31 @@
         <div class="leaders-grid">
           <article class="leader-card">
             <div class="leader-photo">
-              <img src="assets/images/leader-1.jpg" alt="Founder" />
+              <img src="assets/main/WhatsApp Image 2026-06-27 at 11.40.31.jpeg" alt="Founder" />
               <span class="leader-tag">Founder</span>
             </div>
             <div class="leader-info">
-              <h3>David Mokoena</h3>
+              <h3>Valentious Bhasikiti</h3>
               <p>Founder &amp; Chief Executive Officer</p>
             </div>
           </article>
           <article class="leader-card">
             <div class="leader-photo">
-              <img src="assets/images/leader-2.jpg" alt="President" />
+              <img src="assets/main/inlibs.png" alt="President" class="leader-img-president" />
               <span class="leader-tag">President</span>
             </div>
             <div class="leader-info">
-              <h3>Sarah Ndlovu</h3>
+              <h3>Phillip Chamisa</h3>
               <p>President &amp; Chief Financial Officer</p>
             </div>
           </article>
           <article class="leader-card">
             <div class="leader-photo">
-              <img src="assets/images/leader-3.jpg" alt="COO" />
+              <img src="assets/main/WhatsApp Image 2026-06-27 at 11.42.33.jpeg" alt="COO" class="leader-img-coo" />
               <span class="leader-tag">COO</span>
             </div>
             <div class="leader-info">
-              <h3>James Okonkwo</h3>
+              <h3>Given Manyeke</h3>
               <p>Chief Operations Officer</p>
             </div>
           </article>
@@ -404,7 +420,7 @@
     </section>
 
     <!-- Featured CTA -->
-    <section class="featured-cta">
+    <!-- <section class="featured-cta">
       <div class="featured-cta-image-wrap">
         <img
           src="assets/main/d52a2cd7-72c1-4c0f-8a01-5c0b75ffdf80 1.png"
@@ -415,7 +431,7 @@
         </div>
       </div>
       <div class="container featured-cta-content">
-        <p style="font-size: 18px; color: #ffffff; text-align: left;">
+        <p style="color: #ffffff; text-align: left;">
           Shield Point Capital is capturing the continent's next massive credit super-cycle through FinEra,
           our cloud-native matching engine. By acting purely as an orchestrator between high-intent borrowers
           and registered institutional lenders, we scale revenues exponentially without balance-sheet credit exposure.
@@ -442,7 +458,7 @@
        </p>
         <a href="#about" class="btn btn-navy" style="display: inline-block; align-self: flex-start; margin-left: 0; margin-top: 1.5rem;">Learn More</a>
       </div>
-    </section>
+    </section> -->
 
     <!-- Why Choose Us -->
     <section class="why-choose">
@@ -450,10 +466,7 @@
         <h2 class="section-title">Why Choose Us</h2>
         <div class="why-grid">
           <div class="why-item">
-            <img
-              src="assets/main/e3d59d60c2891e39457dc635b6fc89ab 1.png"
-              alt=""
-            />
+            <div class="why-icon"><img src="assets/main/e3d59d60c2891e39457dc635b6fc89ab 1.png" alt="" /></div>
             <div>
               <h4>Deep Market Research</h4>
               <p>
@@ -463,10 +476,7 @@
             </div>
           </div>
           <div class="why-item">
-            <img
-              src="assets/main/c6b0a3f0c4ad3450d38bfd1c611b52a3 1.png"
-              alt=""
-            />
+            <div class="why-icon"><img src="assets/main/c6b0a3f0c4ad3450d38bfd1c611b52a3 1.png" alt="" /></div>
             <div>
               <h4>Innovative Technology</h4>
               <p>
@@ -476,10 +486,7 @@
             </div>
           </div>
           <div class="why-item">
-            <img
-              src="assets/main/7e99573e654821e5dd4d5b35d9fbd59b 1.png"
-              alt=""
-            />
+            <div class="why-icon"><img src="assets/main/7e99573e654821e5dd4d5b35d9fbd59b 1.png" alt="" /></div>
             <div>
               <h4>Trusted Relationships</h4>
               <p>
@@ -489,10 +496,7 @@
             </div>
           </div>
           <div class="why-item">
-            <img
-              src="assets/main/ee728a3a29bef19f0a38a2528dfb34dd 1.png"
-              alt=""
-            />
+            <div class="why-icon"><img src="assets/main/ee728a3a29bef19f0a38a2528dfb34dd 1.png" alt="" /></div>
             <div>
               <h4>Proven Track Record</h4>
               <p>
@@ -502,10 +506,7 @@
             </div>
           </div>
           <div class="why-item">
-            <img
-              src="assets/main/2925691fcded59c19bc11cef3c6aada5 1.png"
-              alt=""
-            />
+            <div class="why-icon"><img src="assets/main/2925691fcded59c19bc11cef3c6aada5 1.png" alt="" /></div>
             <div>
               <h4>Dedicated Support Team</h4>
               <p>
@@ -636,16 +637,19 @@
               </div>
               <div class="form-buttons">
                 <button type="submit" class="btn btn-green">
-                  <img src="assets/main/image 15.png" alt="Email" style="width: 25px; height: 25px; object-fit: contain; filter: brightness(0) invert(1);" />
                   Send Inquiry
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 18px; height: 18px;">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
                 </button>
                 <a
                   href="https://wa.me/263780034146"
                   target="_blank"
                   class="btn btn-green"
                 >
-                <img src="assets/main/45e235ee05ff4c3ee3d000b9532ef587 1.png" alt="Email" style="width: 25px; height: 25px; object-fit: contain; filter: brightness(0) invert(1);" />
-                 WhatsApp Now
+                  WhatsApp Now
+                  <img src="assets/main/45e235ee05ff4c3ee3d000b9532ef587 1.png" alt="" style="width: 25px; height: 25px; object-fit: contain; filter: brightness(0) invert(1);" />
                 </a>
               </div>
               <p class="form-status" id="formStatus" role="status"></p>
@@ -668,9 +672,7 @@
               <span class="logo-text">SHIELD POINT<br />CAPITAL</span>
             </a>
             <p>
-              Shield Point Capital empowers businesses and individuals with
-              accessible, technology-driven financial solutions across Africa
-              and beyond.
+              To build the future of inclusive finance and the technology that makes it possible.
             </p>
           </div>
           <div class="footer-col">
@@ -687,24 +689,42 @@
           <div class="footer-col">
             <h4>Our Services</h4>
             <ul>
-              <li><a href="#">Loan Facilitation</a></li>
-              <li><a href="#">Credit Analytics</a></li>
-              <li><a href="#">Risk Management</a></li>
-              <li><a href="#">Financial Advisory</a></li>
+              <li><a href="loan-services.html">Core Services</a></li>
+              <li><a href="services.html">Business Support Services</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Legal &amp; Compliance</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>Connect</h4>
-            <div class="social-links">
-              <a href="#" aria-label="LinkedIn">in</a>
-              <a href="#" aria-label="Twitter">X</a>
-              <a href="#" aria-label="Facebook">f</a>
-              <a href="#" aria-label="Instagram">ig</a>
-            </div>
-            <div class="footer-contact-info">
-              <p>+27 (0) 11 123 4567</p>
-              <p>info@shieldpointcapital.com</p>
-            </div>
+            <ul class="footer-contact-list">
+              <li>
+                <img src="assets/main/912841506896fdf51b089d4922dc74c3 1.png" alt="" />
+                <span>info@fineramedia.co.zw</span>
+              </li>
+              <li>
+                <img src="assets/main/45e235ee05ff4c3ee3d000b9532ef587 1.png" alt="" />
+                <span>+263 780 034 146</span>
+              </li>
+              <li>
+                <img src="assets/main/8a0f18aee763cdcc20522814d6528990 1.png" alt="" />
+                <span>+263 719 197 960</span>
+              </li>
+              <li>
+                <img src="assets/main/7eaf2c45965894defed0c8ae2a4e2140 1.png" alt="" />
+                <span>8AM – 11PM (Mon – Sun)</span>
+              </li>
+              <li>
+                <img src="assets/main/4edcb460a940ff726549077935f57168 1.png" alt="" />
+                <span>Harare (Online-based), Zimbabwe</span>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="footer-bottom">
