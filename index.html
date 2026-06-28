@@ -403,52 +403,173 @@
       </div>
     </section>
 
-    <!-- Executive Leadership -->
+    <!-- Leadership Team -->
     <section class="leadership" id="team">
       <div class="container">
-        <h2 class="section-title">EXECUTIVE LEADERSHIP</h2>
+        <h2 class="section-title">LEADERSHIP TEAM</h2>
         <div class="leaders-grid">
           <article class="leader-card">
             <div class="leader-photo">
               <img
                 src="assets/main/WhatsApp Image 2026-06-27 at 11.40.31.jpeg"
-                alt="Founder"
+                alt="Valentious Bhasikiti"
               />
-              <span class="leader-tag">Founder</span>
+              <span class="leader-tag">CEO</span>
             </div>
             <div class="leader-info">
               <h3>Valentious Bhasikiti</h3>
-              <p>Founder &amp; Chief Executive Officer</p>
+              <p>Founder, Director &amp; Chief Executive Officer</p>
+              <button type="button" class="leader-read-more">Read more</button>
+            </div>
+            <div class="leader-detail" hidden>
+              <div class="leader-education">
+                <div class="leader-education-icon" aria-hidden="true">
+                  <img src="assets/main/graduate.jpeg" alt="" />
+                </div>
+                <div class="leader-education-content">
+                  <span class="leader-education-label">Education</span>
+                  <p class="leader-education-degree">BSc Honours in Informatics and Analytics</p>
+                  <p class="leader-education-school">National University of Science and Technology</p>
+                </div>
+                <span class="leader-education-badge">3rd Year Student</span>
+              </div>
+              <p class="leader-detail-bio">
+                Valentious Bhasikiti is the Founder and Chief Executive Officer of
+                Shield Point Capital (Private) Limited. He leads the company's
+                strategic direction, product innovation, business growth, and
+                partnerships. He is the visionary behind FinEra Inclusive Credit
+                Marketplace, driving the mission to improve access to responsible
+                financing across Africa.
+              </p>
+              <h4>Key Responsibilities</h4>
+              <ul>
+                <li>Corporate strategy and leadership</li>
+                <li>Product innovation and development</li>
+                <li>Business growth and expansion</li>
+                <li>Investor and stakeholder relations</li>
+                <li>Strategic partnerships</li>
+                <li>Financial inclusion initiatives</li>
+              </ul>
             </div>
           </article>
           <article class="leader-card">
             <div class="leader-photo">
               <img
                 src="assets/main/inlibs.png"
-                alt="President"
+                alt="Philip Chamisa"
                 class="leader-img-president"
               />
-              <span class="leader-tag">President</span>
+              <span class="leader-tag">Secretary</span>
             </div>
             <div class="leader-info">
-              <h3>Phillip Chamisa</h3>
-              <p>President &amp; Chief Financial Officer</p>
+              <h3>Philip Chamisa</h3>
+              <p>Company Secretary &amp; Head of Systems Development</p>
+              <button type="button" class="leader-read-more">Read more</button>
+            </div>
+            <div class="leader-detail" hidden>
+              <div class="leader-education">
+                <div class="leader-education-icon" aria-hidden="true">
+                  <img src="assets/main/graduate.jpeg" alt="" />
+                </div>
+                <div class="leader-education-content">
+                  <span class="leader-education-label">Education</span>
+                  <p class="leader-education-degree">BSc Honours in Computer Science</p>
+                  <p class="leader-education-school">University of Zimbabwe</p>
+                </div>
+                <span class="leader-education-badge">3rd Year Student</span>
+              </div>
+              <p class="leader-detail-bio">
+                Philip Chamisa oversees corporate governance and the company's
+                technology development. He ensures strong internal operations while
+                leading the design and continuous improvement of the company's
+                digital platforms and business systems.
+              </p>
+              <h4>Key Responsibilities</h4>
+              <ul>
+                <li>Corporate governance</li>
+                <li>Company administration</li>
+                <li>Systems development</li>
+                <li>Technology strategy</li>
+                <li>Operational efficiency</li>
+                <li>Executive support</li>
+              </ul>
             </div>
           </article>
           <article class="leader-card">
             <div class="leader-photo">
               <img
                 src="assets/main/WhatsApp Image 2026-06-27 at 11.42.33.jpeg"
-                alt="COO"
+                alt="Given Manyeke"
                 class="leader-img-coo"
               />
-              <span class="leader-tag">COO</span>
+              <span class="leader-tag">Director</span>
             </div>
             <div class="leader-info">
               <h3>Given Manyeke</h3>
-              <p>Chief Operations Officer</p>
+              <p>Director of Business Management</p>
+              <button type="button" class="leader-read-more">Read more</button>
+            </div>
+            <div class="leader-detail" hidden>
+              <div class="leader-education">
+                <div class="leader-education-icon" aria-hidden="true">
+                  <img src="assets/main/graduate.jpeg" alt="" />
+                </div>
+                <div class="leader-education-content">
+                  <span class="leader-education-label">Education</span>
+                  <p class="leader-education-degree">BCom Honours in Business Management</p>
+                  <p class="leader-education-school">National University of Science and Technology</p>
+                </div>
+                <span class="leader-education-badge">2nd Year Student</span>
+              </div>
+              <p class="leader-detail-bio">
+                Given Manyeke leads business development and strategic
+                partnerships. He is responsible for expanding relationships with
+                financial institutions, corporate partners, and other stakeholders
+                to support the growth of Shield Point Capital and FinEra Inclusive
+                Credit Marketplace.
+              </p>
+              <h4>Key Responsibilities</h4>
+              <ul>
+                <li>Business development</li>
+                <li>Strategic partnerships</li>
+                <li>Financial institution engagement</li>
+                <li>Market expansion</li>
+                <li>Revenue growth</li>
+                <li>Business operations</li>
+              </ul>
             </div>
           </article>
+        </div>
+      <div
+        class="leader-modal"
+        id="leaderModal"
+        hidden
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="leaderModalTitle"
+      >
+        <div class="leader-modal-backdrop" data-leader-modal-close></div>
+        <div class="leader-modal-panel">
+          <div class="leader-modal-accent" aria-hidden="true"></div>
+          <button
+            type="button"
+            class="leader-modal-close"
+            aria-label="Close"
+            data-leader-modal-close
+          >
+            &times;
+          </button>
+          <div class="leader-modal-hero" hidden>
+            <img class="leader-modal-photo" src="" alt="" />
+            <div class="leader-modal-hero-overlay"></div>
+          </div>
+          <div class="leader-modal-content">
+            <div class="leader-modal-header">
+              <h3 id="leaderModalTitle"></h3>
+              <p class="leader-modal-role"></p>
+            </div>
+            <div class="leader-modal-body"></div>
+          </div>
         </div>
       </div>
     </section>
