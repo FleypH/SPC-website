@@ -71,7 +71,47 @@
           <a href="partners.html">Partners</a>
           <a href="#contact">Contact Us</a>
         </nav>
-        <a href="partners.html" class="btn btn-green">Become A Partner</a>
+        <div class="nav-dropdown header-service-dropdown">
+          <button
+            type="button"
+            class="btn btn-green nav-dropdown-toggle"
+            aria-expanded="false"
+            aria-haspopup="true"
+          >
+            Need a Service
+            <svg
+              class="nav-dropdown-chevron"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 9l6 6 6-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </button>
+          <ul class="nav-dropdown-menu" role="menu">
+            <li role="none">
+              <a href="web-development.html" class="active" role="menuitem"
+                >Business Website Development</a
+              >
+            </li>
+            <li role="none">
+              <a href="business-plans.html" role="menuitem"
+                >Business Plan Development</a
+              >
+            </li>
+            <li role="none">
+              <a href="market-research.html" role="menuitem">Market Research</a>
+            </li>
+          </ul>
+        </div>
         <button
           class="nav-toggle"
           id="navToggle"
@@ -455,6 +495,7 @@
               <li><a href="#">Legal &amp; Compliance</a></li>
               <li><a href="#">Privacy Policy</a></li>
               <li><a href="#">Terms of Service</a></li>
+              <li><a href="#cookies">Cookies</a></li>
             </ul>
           </div>
         </div>

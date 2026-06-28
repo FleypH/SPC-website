@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-define('RECIPIENT_EMAIL', 'partners@shieldpointcapital.com');
+define('RECIPIENT_EMAIL', 'partners@shieldpointcapital.co.zw');
 define('FROM_EMAIL', 'noreply@shieldpointcapital.com');
 define('SITE_NAME', 'Shield Point Capital');
 

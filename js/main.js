@@ -63,6 +63,109 @@
     });
   });
 
+  /* Cookie consent banner */
+  const COOKIE_CONSENT_KEY = "shieldpoint_cookie_consent";
+
+  function createCookieBanner() {
+    const banner = document.createElement("div");
+    banner.className = "cookie-consent";
+    banner.id = "cookieConsent";
+    banner.setAttribute("role", "dialog");
+    banner.setAttribute("aria-live", "polite");
+    banner.setAttribute("aria-label", "Cookie consent");
+    banner.hidden = true;
+
+    banner.innerHTML =
+      '<div class="cookie-consent-panel">' +
+      '<div class="cookie-consent-icon" aria-hidden="true">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>' +
+      '<path d="M8.5 8.5v.01M16 9v.01M9 16v.01M15.5 14.5v.01"/>' +
+      "</svg></div>" +
+      '<div class="cookie-consent-body">' +
+      '<p class="cookie-consent-label">Cookie Notice</p>' +
+      "<p>We do not use cookies to store passwords, track personal browsing behavior for advertising, or share your information with third parties.</p>" +
+      "<p>By continuing to use this website, you agree to our use of essential cookies that help provide a better browsing experience.</p>" +
+      "</div>" +
+      '<div class="cookie-consent-actions">' +
+      '<button type="button" class="btn cookie-consent-accept">Accept</button>' +
+      '<button type="button" class="btn cookie-consent-reject">Reject</button>' +
+      "</div></div>";
+
+    banner
+      .querySelector(".cookie-consent-accept")
+      .addEventListener("click", function () {
+        hideCookieConsent("accepted");
+      });
+
+    banner
+      .querySelector(".cookie-consent-reject")
+      .addEventListener("click", function () {
+        hideCookieConsent("rejected");
+      });
+
+    document.body.appendChild(banner);
+    return banner;
+  }
+
+  function showCookieConsent() {
+    let banner = document.getElementById("cookieConsent");
+    if (!banner) {
+      banner = createCookieBanner();
+    }
+
+    banner.hidden = false;
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        banner.classList.add("cookie-consent--visible");
+      });
+    });
+  }
+
+  function hideCookieConsent(choice) {
+    const banner = document.getElementById("cookieConsent");
+    if (!banner) return;
+
+    if (choice) {
+      try {
+        localStorage.setItem(COOKIE_CONSENT_KEY, choice);
+      } catch (err) {
+        /* ignore storage errors */
+      }
+    }
+
+    banner.classList.remove("cookie-consent--visible");
+    banner.addEventListener(
+      "transitionend",
+      function () {
+        if (!banner.classList.contains("cookie-consent--visible")) {
+          banner.hidden = true;
+        }
+      },
+      { once: true },
+    );
+  }
+
+  document.addEventListener(
+    "click",
+    function (e) {
+      const cookieLink = e.target.closest('a[href="#cookies"]');
+      if (!cookieLink) return;
+      e.preventDefault();
+      showCookieConsent();
+    },
+    true,
+  );
+
+  try {
+    if (!localStorage.getItem(COOKIE_CONSENT_KEY)) {
+      showCookieConsent();
+    }
+  } catch (err) {
+    showCookieConsent();
+  }
+
   /* Smooth scroll offset for fixed header */
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener("click", function (e) {
@@ -71,7 +174,8 @@
         !targetId ||
         targetId === "#" ||
         targetId === "#login" ||
-        targetId === "#blog"
+        targetId === "#blog" ||
+        targetId === "#cookies"
       ) {
         if (targetId === "#login" || targetId === "#blog") {
           e.preventDefault();
@@ -186,5 +290,28 @@
         }
       });
     }
+  }
+
+  /* Home page — reveal header CTAs on mobile after hero scroll */
+  const homeHero = document.getElementById("home");
+  if (document.body.classList.contains("page-home") && homeHero) {
+    const headerHeight =
+      getComputedStyle(document.documentElement)
+        .getPropertyValue("--header-height")
+        .trim() || "80px";
+
+    const heroObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          document.body.classList.toggle("header-past-hero", !entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0,
+        rootMargin: "-" + headerHeight + " 0px 0px 0px",
+      },
+    );
+
+    heroObserver.observe(homeHero);
   }
 })();

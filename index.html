@@ -17,7 +17,7 @@
     />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
+  <body class="page-home">
     <!-- Header -->
     <header class="site-header">
       <div class="container header-inner">
@@ -29,23 +29,54 @@
           <a href="index.html">Home</a>
           <a href="#about">About</a>
           <div class="nav-dropdown">
-            <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            <button
+              type="button"
+              class="nav-dropdown-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+            >
               Products &amp; Services
-              <svg class="nav-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <svg
+                class="nav-dropdown-chevron"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M6 9l6 6 6-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
               </svg>
             </button>
             <ul class="nav-dropdown-menu" role="menu">
-              <li role="none"><a href="products.html" role="menuitem">Our Products</a></li>
-              <li role="none"><a href="loan-services.html" role="menuitem">Core Services</a></li>
-              <li role="none"><a href="services.html" role="menuitem">Business Support Services</a></li>
+              <li role="none">
+                <a href="products.html" role="menuitem">Our Products</a>
+              </li>
+              <li role="none">
+                <a href="loan-services.html" role="menuitem">Core Services</a>
+              </li>
+              <li role="none">
+                <a href="services.html" role="menuitem"
+                  >Business Support Services</a
+                >
+              </li>
             </ul>
           </div>
           <a href="investors.html">Investors</a>
           <a href="partners.html">Partners</a>
           <a href="#contact">Contact Us</a>
         </nav>
-        <a href="partners.html" class="btn btn-green">Partner With Us</a>
+        <div class="header-actions">
+          <a href="partners.html#apply" class="btn btn-green">Partner With Us</a>
+          <a href="investors.html#request-info" class="btn btn-green"
+            >Invest With Us</a
+          >
+        </div>
         <button
           class="nav-toggle"
           id="navToggle"
@@ -75,14 +106,14 @@
           <h1 class="hero-heading">Building Financial Access for Everyone</h1>
           <p class="hero-subtext">
             Shield Point Capital develops innovative financial technology
-            solutions that connect individuals, civil servants,
-            businesses and licenced lenders through inclusive digital platforms.
+            solutions that connect individuals, civil servants, businesses and
+            licenced lenders through inclusive digital platforms.
           </p>
           <div class="hero-cta">
-            <a href="products.html" class="btn-hero-primary"
-              >Explore FinEra</a
+            <a href="investors.html#request-info" class="btn-hero-primary"
+              >Invest With Us</a
             >
-            <a href="partners.html" class="btn-hero-secondary"
+            <a href="partners.html#apply" class="btn-hero-secondary"
               >Partner With Us</a
             >
           </div>
@@ -113,16 +144,29 @@
         <div class="info-text">
           <h2>WHO ARE WE</h2>
           <p>
-            <strong>Shield Point Capital (Private) Limited</strong> is a Zimbabwean company registered under <strong>the Companies and Other Business Entities Act [Chapter 24:31]</strong>. The company was founded on 17 September 2025 with a vision of making financing more accessible, transparent, and inclusive for individuals and businesses across Africa.
+            <strong>Shield Point Capital (Private) Limited</strong> is a
+            Zimbabwean company registered under
+            <strong
+              >the Companies and Other Business Entities Act [Chapter
+              24:31]</strong
+            >. The company was founded on 17 September 2025 with a vision of
+            making financing more accessible, transparent, and inclusive for
+            individuals and businesses across Africa.
+          </p>
+          <p>The company is currently operating from Bulawayo, Zimbabwe.</p>
+          <p>
+            Shield Point Capital began as a small student financing initiative
+            with a team of three members, providing responsible financial
+            support to university students. Through continuous market research
+            and a deep understanding of the financial challenges faced by many
+            Africans, particularly in Zimbabwe, the company has evolved into a
+            growing financial services and technology business.
           </p>
           <p>
-            The company is currently operating from Bulawayo, Zimbabwe.
-          </p>
-          <p>
-            Shield Point Capital began as a small student financing initiative with a team of three members, providing responsible financial support to university students. Through continuous market research and a deep understanding of the financial challenges faced by many Africans, particularly in Zimbabwe, the company has evolved into a growing financial services and technology business.
-          </p>
-          <p>
-            Today, Shield Point Capital is building innovative financial solutions that connect people, businesses, and financial institutions through technology, creating faster, fairer, and more efficient access to finance.
+            Today, Shield Point Capital is building innovative financial
+            solutions that connect people, businesses, and financial
+            institutions through technology, creating faster, fairer, and more
+            efficient access to finance.
           </p>
         </div>
       </div>
@@ -140,11 +184,8 @@
         <div class="info-text">
           <h2>OUR MISSION</h2>
           <p>
-            To democratize access to capital by leveraging technology and deep
-            market knowledge. We believe every business owner deserves the
-            financial tools to grow from the bustling market stall to the
-            boardroom and we are committed to making that vision a reality
-            across emerging markets.
+            To build the future of inclusive finance and the technology that
+            makes it possible
           </p>
         </div>
       </div>
@@ -162,10 +203,9 @@
         <div class="info-text">
           <h2>OUR VISION</h2>
           <p>
-            To become the leading capital partner in Africa, recognized for
-            integrity, innovation, and measurable impact. We envision a future
-            where financial inclusion is not an aspiration but a standard powered by data, driven by people, and protected by the shield of
-            trust we build with every client.
+            Vision To become AFRICA'S leading financial innovation company
+            connecting people and businesses to financial solutions through
+            technology
           </p>
         </div>
       </div>
@@ -180,52 +220,60 @@
             <img
               src="assets/main/Container.png"
               alt=""
-              style="width: 110px; height: 110px;"
+              style="width: 110px; height: 110px"
             />
             <h3>Innovation Through Technology</h3>
             <p>
-              Leveraging technology to create smarter, 
-              faster, and more accessible financial solutions for everyone.
+              Leveraging technology to create smarter, faster, and more
+              accessible financial solutions for everyone.
             </p>
           </article>
           <article class="value-card tan">
             <img
               src="assets/main/2925691fcded59c19bc11cef3c6aada5 1.png"
               alt=""
-              style="width: 110px; height: 110px;"
+              style="width: 110px; height: 110px"
             />
             <h3>Financial Inclusion</h3>
             <p>
-              Empowering individuals and businesses by simplifying 
-              access to trusted financial opportunities.
+              Empowering individuals and businesses by simplifying access to
+              trusted financial opportunities.
             </p>
           </article>
           <article class="value-card green">
-            <img src="assets/main/0f6acdcd198c6c71a7ebecd8ff3b5d50 1.png" alt="" style="width: 110px; height: 110px;" />
+            <img
+              src="assets/main/0f6acdcd198c6c71a7ebecd8ff3b5d50 1.png"
+              alt=""
+              style="width: 110px; height: 110px"
+            />
             <h3>Partnership and Collaboration</h3>
             <p>
-              Achieving greater impact by working together
-              to deliver innovative and accessible financial solutions.
+              Achieving greater impact by working together to deliver innovative
+              and accessible financial solutions.
             </p>
           </article>
           <article class="value-card tan">
             <img
               src="assets/main/7e99573e654821e5dd4d5b35d9fbd59b 1.png"
               alt=""
-              style="width: 110px; height: 110px;"
+              style="width: 110px; height: 110px"
             />
             <h3>Compliance & Integrity</h3>
             <p>
-              Building trustworthy financial systems
-              guided by transparency, ethical conduct, and responsible governance.
+              Building trustworthy financial systems guided by transparency,
+              ethical conduct, and responsible governance.
             </p>
           </article>
           <article class="value-card green">
-            <img src="assets/main/e3d59d60c2891e39457dc635b6fc89ab 1.png" alt="" style="width: 110px; height: 110px;" />
+            <img
+              src="assets/main/e3d59d60c2891e39457dc635b6fc89ab 1.png"
+              alt=""
+              style="width: 110px; height: 110px"
+            />
             <h3>Trust & Transparency</h3>
             <p>
-              Providing secure and transparent financial
-              systems that customers and partners can rely on with confidence.
+              Providing secure and transparent financial systems that customers
+              and partners can rely on with confidence.
             </p>
           </article>
           <article class="value-card tan">
@@ -235,7 +283,7 @@
             />
             <h3>Empowerment</h3>
             <p>
-              Empowering individuals and businesses with the tools, knowledge, 
+              Empowering individuals and businesses with the tools, knowledge,
               and access needed to achieve financial growth and opportunity.
             </p>
           </article>
@@ -247,32 +295,36 @@
     <section class="milestones-section">
       <div class="container">
         <h2 class="section-title">OUR GOALS</h2>
-      <div class="milestones-row">
-        <div class="milestone-item">
-          <div class="milestone-number">01</div>
-          <div class="milestone-text">
-            Digitizing traditional lending processes to improve efficiency and reduce operational delays.
+        <div class="milestones-row">
+          <div class="milestone-item">
+            <div class="milestone-number">01</div>
+            <div class="milestone-text">
+              Digitizing traditional lending processes to improve efficiency and
+              reduce operational delays.
+            </div>
+          </div>
+          <div class="milestone-item">
+            <div class="milestone-number">02</div>
+            <div class="milestone-text">
+              Launching a secure digital marketplace that connects licensed
+              lenders with verified borrowers.
+            </div>
+          </div>
+          <div class="milestone-item">
+            <div class="milestone-number">03</div>
+            <div class="milestone-text">
+              Becoming Zimbabwe's leading digital lending marketplace for
+              borrowers and licensed lenders.
+            </div>
+          </div>
+          <div class="milestone-item">
+            <div class="milestone-number">04</div>
+            <div class="milestone-text">
+              Expanding operations into regional African markets with limited
+              access to fast financial services.
+            </div>
           </div>
         </div>
-        <div class="milestone-item">
-          <div class="milestone-number">02</div>
-          <div class="milestone-text">
-            Launching a secure digital marketplace that connects licensed lenders with verified borrowers.
-          </div>
-        </div>
-        <div class="milestone-item">
-          <div class="milestone-number">03</div>
-          <div class="milestone-text">
-            Becoming Zimbabwe's leading digital lending marketplace for borrowers and licensed lenders.
-          </div>
-        </div>
-        <div class="milestone-item">
-          <div class="milestone-number">04</div>
-          <div class="milestone-text">
-            Expanding operations into regional African markets with limited access to fast financial services.
-          </div>
-        </div>
-      </div>
       </div>
     </section>
 
@@ -282,20 +334,28 @@
         <h2 class="section-title">OUR TARGETED MARKET</h2>
         <div class="target-grid">
           <div class="target-item">
-            <div class="target-icon"><img src="assets/main/Container (2).png" alt="" /></div>
-            <span>Lending Institutions & <br>Corparates (B2B)</span>
+            <div class="target-icon">
+              <img src="assets/main/Container (2).png" alt="" />
+            </div>
+            <span>Lending Institutions & <br />Corparates (B2B)</span>
           </div>
           <div class="target-item">
-            <div class="target-icon"><img src="assets/main/Container (1).png" alt="" /></div>
-            <span>Individual Borrowers <br>(B2C)</span>
+            <div class="target-icon">
+              <img src="assets/main/Container (1).png" alt="" />
+            </div>
+            <span>Individual Borrowers <br />(B2C)</span>
           </div>
           <div class="target-item">
-            <div class="target-icon"><img src="assets/main/Container (3).png" alt="" /></div>
+            <div class="target-icon">
+              <img src="assets/main/Container (3).png" alt="" />
+            </div>
             <span>SMEs</span>
           </div>
           <div class="target-item">
-            <div class="target-icon"><img src="assets/main/Container (4).png" alt="" /></div>
-            <span>Institutional Partners <br>(B2B Enterprise)</span>
+            <div class="target-icon">
+              <img src="assets/main/Container (4).png" alt="" />
+            </div>
+            <span>Institutional Partners <br />(B2B Enterprise)</span>
           </div>
         </div>
       </div>
@@ -307,23 +367,35 @@
         <h2 class="section-title">COMPANY OVERVIEW</h2>
         <div class="overview-grid">
           <div class="overview-card">
-            <img src="assets/main/8bd491f372d9deed96ed17c2b41ffee0 1.png" alt="" />
+            <img
+              src="assets/main/8bd491f372d9deed96ed17c2b41ffee0 1.png"
+              alt=""
+            />
             <h4>Legal Structure</h4>
             <p>Private Limited Company</p>
             <a href="#" class="overview-link">readmore</a>
           </div>
           <div class="overview-card">
-            <img src="assets/main/cb3617b60433fa911a3cdb01e6adc509 1.png" alt="" />
+            <img
+              src="assets/main/cb3617b60433fa911a3cdb01e6adc509 1.png"
+              alt=""
+            />
             <h4>Industry</h4>
             <p>Financial Technology (FinTech)</p>
           </div>
           <div class="overview-card">
-            <img src="assets/main/a6cb36fe2229d8eb9edec7ceb1c9855e 1.png" alt="" />
+            <img
+              src="assets/main/a6cb36fe2229d8eb9edec7ceb1c9855e 1.png"
+              alt=""
+            />
             <h4>Headquarters</h4>
             <p>Bulawayo, Zimbabwe</p>
           </div>
           <div class="overview-card">
-            <img src="assets/main/2522e2f2ad20dc67042888c90c097708 1.png" alt="" />
+            <img
+              src="assets/main/2522e2f2ad20dc67042888c90c097708 1.png"
+              alt=""
+            />
             <h4>Focus Areas</h4>
             <p>Inclusion, Lending, Data Intelligence</p>
           </div>
@@ -338,7 +410,10 @@
         <div class="leaders-grid">
           <article class="leader-card">
             <div class="leader-photo">
-              <img src="assets/main/WhatsApp Image 2026-06-27 at 11.40.31.jpeg" alt="Founder" />
+              <img
+                src="assets/main/WhatsApp Image 2026-06-27 at 11.40.31.jpeg"
+                alt="Founder"
+              />
               <span class="leader-tag">Founder</span>
             </div>
             <div class="leader-info">
@@ -348,7 +423,11 @@
           </article>
           <article class="leader-card">
             <div class="leader-photo">
-              <img src="assets/main/inlibs.png" alt="President" class="leader-img-president" />
+              <img
+                src="assets/main/inlibs.png"
+                alt="President"
+                class="leader-img-president"
+              />
               <span class="leader-tag">President</span>
             </div>
             <div class="leader-info">
@@ -358,7 +437,11 @@
           </article>
           <article class="leader-card">
             <div class="leader-photo">
-              <img src="assets/main/WhatsApp Image 2026-06-27 at 11.42.33.jpeg" alt="COO" class="leader-img-coo" />
+              <img
+                src="assets/main/WhatsApp Image 2026-06-27 at 11.42.33.jpeg"
+                alt="COO"
+                class="leader-img-coo"
+              />
               <span class="leader-tag">COO</span>
             </div>
             <div class="leader-info">
@@ -417,7 +500,12 @@
         <h2 class="section-title">Why Choose Us</h2>
         <div class="why-grid">
           <div class="why-item">
-            <div class="why-icon"><img src="assets/main/e3d59d60c2891e39457dc635b6fc89ab 1.png" alt="" /></div>
+            <div class="why-icon">
+              <img
+                src="assets/main/e3d59d60c2891e39457dc635b6fc89ab 1.png"
+                alt=""
+              />
+            </div>
             <div>
               <h4>Deep Market Research</h4>
               <p>
@@ -427,7 +515,12 @@
             </div>
           </div>
           <div class="why-item">
-            <div class="why-icon"><img src="assets/main/c6b0a3f0c4ad3450d38bfd1c611b52a3 1.png" alt="" /></div>
+            <div class="why-icon">
+              <img
+                src="assets/main/c6b0a3f0c4ad3450d38bfd1c611b52a3 1.png"
+                alt=""
+              />
+            </div>
             <div>
               <h4>Innovative Technology</h4>
               <p>
@@ -437,7 +530,12 @@
             </div>
           </div>
           <div class="why-item">
-            <div class="why-icon"><img src="assets/main/7e99573e654821e5dd4d5b35d9fbd59b 1.png" alt="" /></div>
+            <div class="why-icon">
+              <img
+                src="assets/main/7e99573e654821e5dd4d5b35d9fbd59b 1.png"
+                alt=""
+              />
+            </div>
             <div>
               <h4>Trusted Relationships</h4>
               <p>
@@ -447,7 +545,12 @@
             </div>
           </div>
           <div class="why-item">
-            <div class="why-icon"><img src="assets/main/ee728a3a29bef19f0a38a2528dfb34dd 1.png" alt="" /></div>
+            <div class="why-icon">
+              <img
+                src="assets/main/ee728a3a29bef19f0a38a2528dfb34dd 1.png"
+                alt=""
+              />
+            </div>
             <div>
               <h4>Proven Track Record</h4>
               <p>
@@ -457,7 +560,12 @@
             </div>
           </div>
           <div class="why-item">
-            <div class="why-icon"><img src="assets/main/2925691fcded59c19bc11cef3c6aada5 1.png" alt="" /></div>
+            <div class="why-icon">
+              <img
+                src="assets/main/2925691fcded59c19bc11cef3c6aada5 1.png"
+                alt=""
+              />
+            </div>
             <div>
               <h4>Dedicated Support Team</h4>
               <p>
@@ -502,35 +610,55 @@
             <p class="contact-info-heading">Get in Touch</p>
             <ul class="contact-info-list">
               <li class="contact-info-item">
-                  <img src="assets/main/912841506896fdf51b089d4922dc74c3 1.png" alt="Email" style="width: 37px; height: 37px; object-fit: contain;" />
+                <img
+                  src="assets/main/912841506896fdf51b089d4922dc74c3 1.png"
+                  alt="Email"
+                  style="width: 37px; height: 37px; object-fit: contain"
+                />
                 <div>
                   <h4>Email</h4>
                   <p>business@shieldpointcapital.co.zw</p>
                 </div>
               </li>
               <li class="contact-info-item">
-                <img src="assets/main/45e235ee05ff4c3ee3d000b9532ef587 1.png" alt="Email" style="width: 35px; height: 35px; object-fit: contain;" />
+                <img
+                  src="assets/main/45e235ee05ff4c3ee3d000b9532ef587 1.png"
+                  alt="Email"
+                  style="width: 35px; height: 35px; object-fit: contain"
+                />
                 <div>
                   <h4>WhatsApp / Calls</h4>
                   <p>+263 776 492 182</p>
                 </div>
               </li>
               <li class="contact-info-item">
-                <img src="assets/main/8a0f18aee763cdcc20522814d6528990 1.png" alt="Email" style="width: 35px; height: 35px; object-fit: contain;" />
+                <img
+                  src="assets/main/8a0f18aee763cdcc20522814d6528990 1.png"
+                  alt="Email"
+                  style="width: 35px; height: 35px; object-fit: contain"
+                />
                 <div>
                   <h4>Direct Calls</h4>
                   <p>+263 776 492 182</p>
                 </div>
               </li>
               <li class="contact-info-item">
-                <img src="assets/main/7eaf2c45965894defed0c8ae2a4e2140 1.png" alt="Email" style="width: 37px; height: 37px; object-fit: contain;" />
+                <img
+                  src="assets/main/7eaf2c45965894defed0c8ae2a4e2140 1.png"
+                  alt="Email"
+                  style="width: 37px; height: 37px; object-fit: contain"
+                />
                 <div>
                   <h4>Business Hours</h4>
                   <p>8AM – 11PM (Mon – Sun)</p>
                 </div>
               </li>
               <li class="contact-info-item">
-                <img src="assets/main/4edcb460a940ff726549077935f57168 1.png" alt="Email" style="width: 40px; height: 40px; object-fit: contain;" />
+                <img
+                  src="assets/main/4edcb460a940ff726549077935f57168 1.png"
+                  alt="Email"
+                  style="width: 40px; height: 40px; object-fit: contain"
+                />
                 <div>
                   <h4>Location</h4>
                   <p>Bulawayo, Zimbabwe</p>
@@ -587,7 +715,16 @@
               <div class="form-buttons">
                 <button type="submit" class="btn btn-green">
                   Send Inquiry
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 18px; height: 18px;">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    style="width: 18px; height: 18px"
+                  >
                     <line x1="22" y1="2" x2="11" y2="13"></line>
                     <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                   </svg>
@@ -598,7 +735,16 @@
                   class="btn btn-green"
                 >
                   WhatsApp Now
-                  <img src="assets/main/45e235ee05ff4c3ee3d000b9532ef587 1.png" alt="" style="width: 25px; height: 25px; object-fit: contain; filter: brightness(0) invert(1);" />
+                  <img
+                    src="assets/main/45e235ee05ff4c3ee3d000b9532ef587 1.png"
+                    alt=""
+                    style="
+                      width: 25px;
+                      height: 25px;
+                      object-fit: contain;
+                      filter: brightness(0) invert(1);
+                    "
+                  />
                 </a>
               </div>
               <p class="form-status" id="formStatus" role="status"></p>
@@ -621,7 +767,8 @@
               <span class="logo-text">SHIELD POINT<br />CAPITAL</span>
             </a>
             <p>
-              To build the future of inclusive finance and the technology that makes it possible.
+              To build the future of inclusive finance and the technology that
+              makes it possible.
             </p>
           </div>
           <div class="footer-col">
@@ -648,29 +795,45 @@
               <li><a href="#">Legal &amp; Compliance</a></li>
               <li><a href="#">Privacy Policy</a></li>
               <li><a href="#">Terms of Service</a></li>
+              <li><a href="#cookies">Cookies</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>Connect</h4>
             <ul class="footer-contact-list">
               <li>
-                <img src="assets/main/912841506896fdf51b089d4922dc74c3 1.png" alt="" />
+                <img
+                  src="assets/main/912841506896fdf51b089d4922dc74c3 1.png"
+                  alt=""
+                />
                 <span>business@shieldpointcapital.co.zw</span>
               </li>
               <li>
-                <img src="assets/main/45e235ee05ff4c3ee3d000b9532ef587 1.png" alt="" />
+                <img
+                  src="assets/main/45e235ee05ff4c3ee3d000b9532ef587 1.png"
+                  alt=""
+                />
                 <span>+263 776 492 182</span>
               </li>
               <li>
-                <img src="assets/main/8a0f18aee763cdcc20522814d6528990 1.png" alt="" />
+                <img
+                  src="assets/main/8a0f18aee763cdcc20522814d6528990 1.png"
+                  alt=""
+                />
                 <span>+263 776 492 182</span>
               </li>
               <li>
-                <img src="assets/main/7eaf2c45965894defed0c8ae2a4e2140 1.png" alt="" />
+                <img
+                  src="assets/main/7eaf2c45965894defed0c8ae2a4e2140 1.png"
+                  alt=""
+                />
                 <span>8AM – 11PM (Mon – Sun)</span>
               </li>
               <li>
-                <img src="assets/main/4edcb460a940ff726549077935f57168 1.png" alt="" />
+                <img
+                  src="assets/main/4edcb460a940ff726549077935f57168 1.png"
+                  alt=""
+                />
                 <span>Bulawayo, Zimbabwe</span>
               </li>
             </ul>
