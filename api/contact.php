@@ -1,9 +1,6 @@
 <?php
 /**
  * Shield Point Capital — Contact Form Handler
- *
- * Configure the recipient email below before deploying.
- * Requires PHP with mail() enabled, or swap for SMTP (see comments).
  */
 
 header('Content-Type: application/json');
@@ -22,11 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// ── Configuration ──────────────────────────────────────────────
 define('RECIPIENT_EMAIL', 'business@shieldpointcapital.co.zw');
 define('FROM_EMAIL', 'noreply@shieldpointcapital.com');
 define('SITE_NAME', 'Shield Point Capital');
-// ───────────────────────────────────────────────────────────────
+define('SITE_URL', 'https://shieldpointcapital.co.zw');
+
+require_once __DIR__ . '/mail-helper.php';
 
 $raw = file_get_contents('php://input');
 $data = json_decode($raw, true);
@@ -65,21 +63,36 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-$subject = SITE_NAME . ' — New Contact Form Message from ' . $firstName . ($lastName !== '' ? ' ' . $lastName : '');
+$fullName = trim($firstName . ($lastName !== '' ? ' ' . $lastName : ''));
+$submittedAt = gmdate('F j, Y \a\t g:i A') . ' UTC';
 
-$body  = "New contact form submission\n";
-$body .= "Source:  {$source}\n\n";
-$body .= "Name:    {$firstName}" . ($lastName !== '' ? " {$lastName}" : '') . "\n";
-$body .= "Email:   {$email}\n";
-$body .= "Phone:   " . ($phone !== '' ? $phone : 'Not provided') . "\n\n";
-$body .= "Message:\n{$message}\n";
+$fields = [
+    ['label' => 'Full Name', 'value' => $fullName],
+    ['label' => 'Email Address', 'value' => $email],
+    ['label' => 'Phone Number', 'value' => $phone !== '' ? $phone : 'Not provided'],
+    ['label' => 'Selected Service', 'value' => $source],
+    ['label' => 'Message / Inquiry', 'value' => $message],
+];
 
-$headers  = "From: " . FROM_EMAIL . "\r\n";
-$headers .= "Reply-To: {$email}\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$summaryFields = [
+    ['label' => 'Submitted Name', 'value' => $fullName],
+    ['label' => 'Email', 'value' => $email],
+    ['label' => 'Selected Service', 'value' => $source],
+    ['label' => 'Date Submitted', 'value' => $submittedAt],
+];
 
-$sent = mail(RECIPIENT_EMAIL, $subject, $body, $headers);
+$sent = spc_send_form_emails([
+    'admin_to' => RECIPIENT_EMAIL,
+    'admin_subject' => SITE_NAME . ' — New Contact Form Message from ' . $fullName,
+    'form_name' => 'Contact Form — ' . $source,
+    'fields' => $fields,
+    'client_email' => $email,
+    'client_first_name' => spc_first_name_from($fullName),
+    'client_summary_fields' => $summaryFields,
+    'reply_to' => $email,
+    'contact_email' => RECIPIENT_EMAIL,
+    'submitted_at' => $submittedAt,
+]);
 
 if ($sent) {
     echo json_encode(['success' => true, 'message' => 'Message sent successfully.']);

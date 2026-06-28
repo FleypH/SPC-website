@@ -22,12 +22,16 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 define('RECIPIENT_EMAIL', 'business@shieldpointcapital.co.zw');
 define('FROM_EMAIL', 'noreply@shieldpointcapital.com');
 define('SITE_NAME', 'Shield Point Capital');
+define('SITE_URL', 'https://shieldpointcapital.co.zw');
 define('MAX_FILE_SIZE', 5 * 1024 * 1024);
+
+require_once __DIR__ . '/email-templates.php';
 
 $firstName   = trim($_POST['firstName'] ?? '');
 $lastName    = trim($_POST['lastName'] ?? '');
 $idNumber    = trim($_POST['idNumber'] ?? '');
 $loanAmount  = trim($_POST['loanAmount'] ?? '');
+$email       = trim($_POST['email'] ?? '');
 
 if ($firstName === '' || $lastName === '' || $idNumber === '' || $loanAmount === '') {
     http_response_code(422);
@@ -81,24 +85,48 @@ foreach ($files as $key => $file) {
     }
 }
 
-$subject = SITE_NAME . ' — Student Loan Application from ' . $firstName . ' ' . $lastName;
+$fullName = trim($firstName . ' ' . $lastName);
+$submittedAt = gmdate('F j, Y \a\t g:i A') . ' UTC';
+$subject = SITE_NAME . ' — Student Loan Application from ' . $fullName;
 
-$body  = "New student loan application\n\n";
-$body .= "First Name:   {$firstName}\n";
-$body .= "Last Name:    {$lastName}\n";
-$body .= "ID/Passport:  {$idNumber}\n";
-$body .= "Loan Amount:  \${$loanAmount}\n";
+$fields = [
+    ['label' => 'Full Name', 'value' => $fullName],
+    ['label' => 'Email Address', 'value' => $email !== '' ? $email : 'Not provided'],
+    ['label' => 'ID / Passport Number', 'value' => $idNumber],
+    ['label' => 'Selected Service', 'value' => 'Student Loan Application'],
+    ['label' => 'Loan Amount', 'value' => '$' . number_format((float) $loanAmount, 2)],
+    ['label' => 'Attachments', 'value' => 'ID/Passport photo and face photo included'],
+];
 
-$boundary = md5((string) time());
-$headers  = "From: " . FROM_EMAIL . "\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-$headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: multipart/mixed; boundary=\"{$boundary}\"\r\n";
+$adminData = [
+    'form_name' => 'Student Loan Application',
+    'fields' => $fields,
+    'submitted_at' => $submittedAt,
+];
 
-$message  = "--{$boundary}\r\n";
+$htmlBody = spc_render_admin_email($adminData);
+$plainBody = spc_render_admin_plain($adminData);
+
+$mixedBoundary = 'spc_mix_' . md5((string) microtime(true));
+$altBoundary = 'spc_alt_' . md5((string) microtime(true) . 'alt');
+
+$headers = [];
+$headers[] = 'MIME-Version: 1.0';
+$headers[] = 'From: ' . FROM_EMAIL;
+$headers[] = 'X-Mailer: PHP/' . phpversion();
+$headers[] = "Content-Type: multipart/mixed; boundary=\"{$mixedBoundary}\"";
+
+$message = "--{$mixedBoundary}\r\n";
+$message .= "Content-Type: multipart/alternative; boundary=\"{$altBoundary}\"\r\n\r\n";
+$message .= "--{$altBoundary}\r\n";
 $message .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$message .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-$message .= $body . "\r\n";
+$message .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+$message .= $plainBody . "\r\n\r\n";
+$message .= "--{$altBoundary}\r\n";
+$message .= "Content-Type: text/html; charset=UTF-8\r\n";
+$message .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+$message .= $htmlBody . "\r\n\r\n";
+$message .= "--{$altBoundary}--\r\n";
 
 foreach ($files as $fieldName => $file) {
     $fileContents = file_get_contents($file['tmp_name']);
@@ -115,16 +143,50 @@ foreach ($files as $fieldName => $file) {
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
     $attachmentName = $label . ($extension ? '.' . $extension : '');
 
-    $message .= "--{$boundary}\r\n";
+    $message .= "--{$mixedBoundary}\r\n";
     $message .= "Content-Type: {$mime}; name=\"{$attachmentName}\"\r\n";
     $message .= "Content-Transfer-Encoding: base64\r\n";
     $message .= "Content-Disposition: attachment; filename=\"{$attachmentName}\"\r\n\r\n";
     $message .= chunk_split(base64_encode($fileContents)) . "\r\n";
 }
 
-$message .= "--{$boundary}--";
+$message .= "--{$mixedBoundary}--";
 
-$sent = mail(RECIPIENT_EMAIL, $subject, $message, $headers);
+$sent = mail(RECIPIENT_EMAIL, '=?UTF-8?B?' . base64_encode($subject) . '?=', $message, implode("\r\n", $headers));
+
+if ($sent && $email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    require_once __DIR__ . '/mail-helper.php';
+
+    spc_send_mail(
+        $email,
+        SITE_NAME . ' — Thank You For Contacting Us',
+        spc_render_client_email([
+            'first_name' => spc_first_name_from($fullName),
+            'client_email' => $email,
+            'form_name' => 'Student Loan Application',
+            'summary_fields' => [
+                ['label' => 'Submitted Name', 'value' => $fullName],
+                ['label' => 'Email', 'value' => $email],
+                ['label' => 'Selected Service', 'value' => 'Student Loan Application'],
+                ['label' => 'Date Submitted', 'value' => $submittedAt],
+            ],
+            'submitted_at' => $submittedAt,
+            'contact_email' => RECIPIENT_EMAIL,
+        ]),
+        spc_render_client_plain([
+            'first_name' => spc_first_name_from($fullName),
+            'form_name' => 'Student Loan Application',
+            'summary_fields' => [
+                ['label' => 'Submitted Name', 'value' => $fullName],
+                ['label' => 'Email', 'value' => $email],
+                ['label' => 'Selected Service', 'value' => 'Student Loan Application'],
+                ['label' => 'Date Submitted', 'value' => $submittedAt],
+            ],
+            'contact_email' => RECIPIENT_EMAIL,
+        ]),
+        RECIPIENT_EMAIL
+    );
+}
 
 if ($sent) {
     echo json_encode(['success' => true, 'message' => 'Application sent successfully.']);

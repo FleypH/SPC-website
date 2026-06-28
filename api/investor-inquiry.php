@@ -22,6 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 define('RECIPIENT_EMAIL', 'investors@shieldpointcapital.co.zw');
 define('FROM_EMAIL', 'noreply@shieldpointcapital.com');
 define('SITE_NAME', 'Shield Point Capital');
+define('SITE_URL', 'https://shieldpointcapital.co.zw');
+
+require_once __DIR__ . '/mail-helper.php';
 
 $raw = file_get_contents('php://input');
 $data = json_decode($raw, true);
@@ -50,21 +53,36 @@ if (!filter_var($workEmail, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-$subject = SITE_NAME . ' — Investor Inquiry from ' . $fullName;
+$submittedAt = gmdate('F j, Y \a\t g:i A') . ' UTC';
 
-$body  = "New investor inquiry\n\n";
-$body .= "Name:              {$fullName}\n";
-$body .= "Institution:       {$institution}\n";
-$body .= "Work Email:        {$workEmail}\n";
-$body .= "Investment Range:  {$investmentRange}\n\n";
-$body .= "Message:\n" . ($message !== '' ? $message : 'Not provided') . "\n";
+$fields = [
+    ['label' => 'Full Name', 'value' => $fullName],
+    ['label' => 'Email Address', 'value' => $workEmail],
+    ['label' => 'Company Name', 'value' => $institution],
+    ['label' => 'Selected Service', 'value' => 'Investor Inquiry'],
+    ['label' => 'Investment Range', 'value' => $investmentRange],
+    ['label' => 'Message / Inquiry', 'value' => $message !== '' ? $message : 'Not provided'],
+];
 
-$headers  = "From: " . FROM_EMAIL . "\r\n";
-$headers .= "Reply-To: {$workEmail}\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$summaryFields = [
+    ['label' => 'Submitted Name', 'value' => $fullName],
+    ['label' => 'Email', 'value' => $workEmail],
+    ['label' => 'Selected Service', 'value' => 'Investor Inquiry'],
+    ['label' => 'Date Submitted', 'value' => $submittedAt],
+];
 
-$sent = mail(RECIPIENT_EMAIL, $subject, $body, $headers);
+$sent = spc_send_form_emails([
+    'admin_to' => RECIPIENT_EMAIL,
+    'admin_subject' => SITE_NAME . ' — Investor Inquiry from ' . $fullName,
+    'form_name' => 'Investor Information Request',
+    'fields' => $fields,
+    'client_email' => $workEmail,
+    'client_first_name' => spc_first_name_from($fullName),
+    'client_summary_fields' => $summaryFields,
+    'reply_to' => $workEmail,
+    'contact_email' => RECIPIENT_EMAIL,
+    'submitted_at' => $submittedAt,
+]);
 
 if ($sent) {
     echo json_encode(['success' => true, 'message' => 'Inquiry sent successfully.']);

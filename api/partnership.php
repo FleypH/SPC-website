@@ -22,6 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 define('RECIPIENT_EMAIL', 'partners@shieldpointcapital.co.zw');
 define('FROM_EMAIL', 'noreply@shieldpointcapital.com');
 define('SITE_NAME', 'Shield Point Capital');
+define('SITE_URL', 'https://shieldpointcapital.co.zw');
+
+require_once __DIR__ . '/mail-helper.php';
 
 $raw = file_get_contents('php://input');
 $data = json_decode($raw, true);
@@ -69,30 +72,41 @@ $servicesList = is_array($services) && count($services) > 0
     ? implode(', ', $services)
     : 'None selected';
 
-$subject = SITE_NAME . ' — Partnership Application from ' . $orgName;
+$submittedAt = gmdate('F j, Y \a\t g:i A') . ' UTC';
 
-$body  = "New partnership application\n\n";
-$body .= "── Organization Details ──\n";
-$body .= "Organization:      {$orgName}\n";
-$body .= "Type:              {$orgType}\n";
-$body .= "Business Sector:   {$businessSector}\n";
-$body .= "Country:           {$country}\n";
-$body .= "Website:           " . ($website !== '' ? $website : 'Not provided') . "\n\n";
-$body .= "── Primary Contact ──\n";
-$body .= "Name:              {$contactName}\n";
-$body .= "Job Title:         {$jobTitle}\n";
-$body .= "Email:             {$contactEmail}\n";
-$body .= "Phone:             " . ($contactPhone !== '' ? $contactPhone : 'Not provided') . "\n\n";
-$body .= "── Partnership Details ──\n";
-$body .= "Interest:\n{$partnershipInterest}\n\n";
-$body .= "Services of Interest: {$servicesList}\n";
+$fields = [
+    ['label' => 'Full Name', 'value' => $contactName],
+    ['label' => 'Email Address', 'value' => $contactEmail],
+    ['label' => 'Phone Number', 'value' => $contactPhone !== '' ? $contactPhone : 'Not provided'],
+    ['label' => 'Company Name', 'value' => $orgName],
+    ['label' => 'Organization Type', 'value' => $orgType],
+    ['label' => 'Business Sector', 'value' => $businessSector],
+    ['label' => 'Country', 'value' => $country],
+    ['label' => 'Website', 'value' => $website !== '' ? $website : 'Not provided'],
+    ['label' => 'Job Title', 'value' => $jobTitle],
+    ['label' => 'Selected Service', 'value' => $servicesList],
+    ['label' => 'Partnership Interest', 'value' => $partnershipInterest],
+];
 
-$headers  = "From: " . FROM_EMAIL . "\r\n";
-$headers .= "Reply-To: {$contactEmail}\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$summaryFields = [
+    ['label' => 'Submitted Name', 'value' => $contactName],
+    ['label' => 'Email', 'value' => $contactEmail],
+    ['label' => 'Selected Service', 'value' => 'Partnership Application'],
+    ['label' => 'Date Submitted', 'value' => $submittedAt],
+];
 
-$sent = mail(RECIPIENT_EMAIL, $subject, $body, $headers);
+$sent = spc_send_form_emails([
+    'admin_to' => RECIPIENT_EMAIL,
+    'admin_subject' => SITE_NAME . ' — Partnership Application from ' . $orgName,
+    'form_name' => 'Partnership Application',
+    'fields' => $fields,
+    'client_email' => $contactEmail,
+    'client_first_name' => spc_first_name_from($contactName),
+    'client_summary_fields' => $summaryFields,
+    'reply_to' => $contactEmail,
+    'contact_email' => RECIPIENT_EMAIL,
+    'submitted_at' => $submittedAt,
+]);
 
 if ($sent) {
     echo json_encode(['success' => true, 'message' => 'Application submitted successfully.']);
