@@ -1255,11 +1255,13 @@ body.mobile-nav-open {
 
 .leaders-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
 .leader-card {
+  display: flex;
+  flex-direction: column;
   background: var(--white);
   border-radius: var(--radius);
   overflow: hidden;
@@ -1270,6 +1272,7 @@ body.mobile-nav-open {
   position: relative;
   aspect-ratio: 3 / 4;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .leader-photo img {
@@ -1288,6 +1291,11 @@ body.mobile-nav-open {
   object-position: center top;
 }
 
+.leader-photo img.leader-img-cto {
+  transform: scale(1.5) translateY(6%);
+  object-position: center center;
+}
+
 .leader-tag {
   position: absolute;
   bottom: 1rem;
@@ -1303,6 +1311,9 @@ body.mobile-nav-open {
 }
 
 .leader-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 1.25rem 1.5rem 1.5rem;
 }
 
@@ -1320,6 +1331,8 @@ body.mobile-nav-open {
 
 .leader-read-more {
   display: inline-block;
+  align-self: flex-start;
+  margin-top: auto;
   padding: 0;
   border: none;
   background: none;
@@ -1484,7 +1497,9 @@ body.mobile-nav-open {
   color: var(--navy);
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .leader-modal-close:hover {
